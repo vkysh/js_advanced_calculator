@@ -16,7 +16,9 @@ function makeCalculator() {
       return this;
     },
     operate(operation, number) {
-      this.result = operation(this.result, number);
+      if (typeof operation === 'function') {
+        this.result = operation(this.result, number);
+      }
 
       return this;
     },
